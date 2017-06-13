@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MrRobot
 {
-    class MrRobot
+    public class MrRobot
     {
 
         public Direction Direction { get; private set; } // текущее направление взгляда
@@ -26,7 +26,6 @@ namespace MrRobot
         {
 
         }
-
 
         public void TurnLeft()
         {
