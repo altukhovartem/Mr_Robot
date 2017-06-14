@@ -17,14 +17,14 @@ namespace MrRobot
 
         public RobotConnection GetConnection()
         {
-            int attemptToConnect = 0;
-            Connection currentConnection = new Connection(robot);
-            while (attemptToConnect < 3)
+            if (new Random().Next(0, 20) % 3 == 1)
             {
-                attemptToConnect++;
+                throw new RobotConnectionException("Robot is busy. Please, do not disturb Robot");
+            }
+            else
+            {
                 return new Connection(robot);
             }
-            throw new RobotConnectionException("Failed to connect to the robot");
         }
     }
 }

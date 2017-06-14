@@ -22,70 +22,78 @@ namespace MrRobot
 
         public void MoveRobotTo(int newX, int newY)
         {
-            int currentX = robot.X;
-            int currentY = robot.Y;
-            if (newX > currentX)
+            if (new Random().Next(0, 20) % 2 == 1)
             {
-                while (robot.Direction != Direction.RIGHT)
-                {
-                    if (robot.Direction == Direction.UP)
-                        robot.TurnRight();
-                    else if (robot.Direction == Direction.DOWN)
-                        robot.TurnLeft();
-                    else
-                        robot.TurnRight();
-                }
-                for (int i = 0; i < newX - currentX; i++)
-                {
-                    robot.StepForward();
-                }
+                throw new Exception("Something is wrong. Please Stand By!");
             }
-            else if (newX < currentX)
+            else
             {
-                while (robot.Direction != Direction.LEFT)
+
+                int currentX = robot.X;
+                int currentY = robot.Y;
+                if (newX > currentX)
                 {
-                    if (robot.Direction == Direction.UP)
-                        robot.TurnLeft();
-                    else if (robot.Direction == Direction.DOWN)
-                        robot.TurnRight();
-                    else
-                        robot.TurnLeft();
+                    while (robot.Direction != Direction.RIGHT)
+                    {
+                        if (robot.Direction == Direction.UP)
+                            robot.TurnRight();
+                        else if (robot.Direction == Direction.DOWN)
+                            robot.TurnLeft();
+                        else
+                            robot.TurnRight();
+                    }
+                    for (int i = 0; i < newX - currentX; i++)
+                    {
+                        robot.StepForward();
+                    }
                 }
-                for (int i = 0; i < currentX - newX; i++)
+                else if (newX < currentX)
                 {
-                    robot.StepForward();
+                    while (robot.Direction != Direction.LEFT)
+                    {
+                        if (robot.Direction == Direction.UP)
+                            robot.TurnLeft();
+                        else if (robot.Direction == Direction.DOWN)
+                            robot.TurnRight();
+                        else
+                            robot.TurnLeft();
+                    }
+                    for (int i = 0; i < currentX - newX; i++)
+                    {
+                        robot.StepForward();
+                    }
                 }
-            }
-            if (newY > currentY)
-            {
-                while (robot.Direction != Direction.UP)
+                if (newY > currentY)
                 {
-                    if (robot.Direction == Direction.LEFT)
-                        robot.TurnRight();
-                    else if (robot.Direction == Direction.RIGHT)
-                        robot.TurnLeft();
-                    else
-                        robot.TurnRight();
+                    while (robot.Direction != Direction.UP)
+                    {
+                        if (robot.Direction == Direction.LEFT)
+                            robot.TurnRight();
+                        else if (robot.Direction == Direction.RIGHT)
+                            robot.TurnLeft();
+                        else
+                            robot.TurnRight();
+                    }
+                    for (int i = 0; i < newY - currentY; i++)
+                    {
+                        robot.StepForward();
+                    }
                 }
-                for (int i = 0; i < newY - currentY; i++)
+                else if (newY < currentY)
                 {
-                    robot.StepForward();
-                }
-            }
-            else if (newY < currentY)
-            {
-                while (robot.Direction != Direction.DOWN)
-                {
-                    if (robot.Direction == Direction.RIGHT)
-                        robot.TurnRight();
-                    else if (robot.Direction == Direction.LEFT)
-                        robot.TurnLeft();
-                    else
-                        robot.TurnLeft();
-                }
-                for (int i = 0; i < currentY - newY; i++)
-                {
-                    robot.StepForward();
+                    while (robot.Direction != Direction.DOWN)
+                    {
+                        if (robot.Direction == Direction.RIGHT)
+                            robot.TurnRight();
+                        else if (robot.Direction == Direction.LEFT)
+                            robot.TurnLeft();
+                        else
+                            robot.TurnLeft();
+                    }
+                    for (int i = 0; i < currentY - newY; i++)
+                    {
+                        robot.StepForward();
+                    }
                 }
             }
         }

@@ -10,7 +10,4 @@ namespace MrRobot
     {
         RobotConnection GetConnection();
     }
-
-    
-
 }
